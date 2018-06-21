@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {notes} from "../actions";
 
 
 class Notes extends Component {
@@ -34,9 +35,20 @@ const mapStateToProps = state => {
   }
 }
 
+// Make actions available in props:
+
 const mapDispatchToProps = dispatch => {
-  return {
-  }
+    return {
+        addNote: (text) => {
+          dispatch(notes.addNote(text));
+        },
+        updateNote: (id, text) => {
+          dispatch(notes.addNote(id, text));
+        },
+        deleteNote: (id) => {
+          dispatch(notes.deleteNote(id));
+        },
+    }
 }
 
 
