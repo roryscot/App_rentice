@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {notes} from "../actions";
+import {notes} from "../redux/actions";
 
 
 class Notes extends Component {
     state = {
         text: "",
         updateNoteId: null,
+    }
+
+    componentDidMount() {
+        this.props.fetchNotes();
     }
 
     onChange = (e) => {
@@ -36,14 +40,9 @@ class Notes extends Component {
     submitNote = (e) => {
         e.preventDefault();
         this.validateNote(); 
-        console.log(this.state)
-        if (this.state.updateNoteId === null) {
-            this.props.addNote(this.state.text);
-        } else {
-            console.log("state", this.state)
-            this.props.updateNote(this.state.updateNoteId, this.state.text);
-        }        
-        this.resetState();
+        const operation = this.state.updateNoteId ? this.props.updateNote : this.props.addNote;
+        operation(this.state.text, this.state.updateNoteId)
+            .then(this.resetState);
     }
 
       
@@ -91,17 +90,19 @@ const mapStateToProps = state => {
 }
 
 // Make actions available in props:
-
 const mapDispatchToProps = dispatch => {
     return {
         addNote: (text) => {
-          dispatch(notes.addNote(text));
+            return dispatch(notes.addNote(text));
         },
         updateNote: (id, text) => {
-          dispatch(notes.updateNote(id, text));
+          return dispatch(notes.updateNote(id, text));
         },
         deleteNote: (id) => {
           dispatch(notes.deleteNote(id));
+        },
+        fetchNotes: () => {
+            dispatch(notes.fetchNotes());
         },
     }
 }
