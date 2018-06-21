@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Route, Switch, BrowserRouter as Router} from 'react-router-dom';
+import {HomePage, NotFound} from './components';
+
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to App_rentice</h1>
-        </header>
-        <p className="App-intro">
-          sign in          
-        </p>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
     );
   }
 }
