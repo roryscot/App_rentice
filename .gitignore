@@ -108,6 +108,9 @@ venv.bak/
 # node modules
 node_modules/
 
+# static files
+static/
+
 # do not include webpack stats
 webpack-stats.dev.json
 webpack-stats.prod.json
