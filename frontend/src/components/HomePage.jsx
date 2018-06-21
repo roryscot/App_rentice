@@ -2,6 +2,8 @@ import React from 'react';
 
 import logo from '../../src/logo.svg';
 
+import Notes from './Notes'
+
 const HomePage = () => (
     <div className="App">
         <header className="App-header">
@@ -11,6 +13,7 @@ const HomePage = () => (
         <p className="App-intro">
             sign in          
         </p>
+        <Notes />
     </div>
 );
 

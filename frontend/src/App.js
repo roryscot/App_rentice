@@ -5,8 +5,7 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 
 import {HomePage, NotFound} from './components';
-import { createStore } from "redux";
-import App_rentice from "./reducers";
+  import App_rentice from "./reducers";
 
 import './App.css';
 
