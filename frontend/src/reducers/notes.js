@@ -5,6 +5,8 @@ const initialState = [
 
 export default function handleNotes(state=initialState, action) {
     let noteList = state.slice();
+    console.log('notelist',state)
+    console.log(action)
 
   switch (action.type) {
 
