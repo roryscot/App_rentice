@@ -8,7 +8,7 @@ export default function handleNotes(state=initialState, action) {
 
   switch (action.type) {
 
-    case 'ADD_NOTE':
+    case actions.ADD_NOTE:
       return [...state, action.note];
 
     case actions.UPDATE_NOTE:

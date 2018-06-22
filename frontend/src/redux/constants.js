@@ -5,4 +5,4 @@ const actions = {
     FETCH_NOTES: "FETCH_NOTES",
 };
 
-export default actions
+export default actions;

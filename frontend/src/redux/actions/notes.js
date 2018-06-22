@@ -1,10 +1,5 @@
 import actions from '../constants';
 
-// Sync
-
-
-// Async action creators
-
 export const fetchNotes = () => {
   return dispatch => {
     let headers = {"Constent-Type": "application/json"};
