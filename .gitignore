@@ -110,6 +110,7 @@ node_modules/
 
 # static files
 static/
+assets/
 
 # do not include webpack stats
 webpack-stats.dev.json
