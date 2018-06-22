@@ -40,7 +40,7 @@ class Notes extends Component {
     submitNote = (e) => {
         e.preventDefault();
         this.validateNote(); 
-        const operation = this.state.updateNoteId ? this.props.updateNote : this.props.addNote;
+        let operation = this.state.updateNoteId || this.state.updateNoteId === 0 ? this.props.updateNote : this.props.addNote;
         operation(this.state.text, this.state.updateNoteId)
             .then(this.resetState);
     }
