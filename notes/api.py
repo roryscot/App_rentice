@@ -32,6 +32,16 @@ class LoginAPI(generics.GenericAPIView):
         })
 
 
+
+class UserAPI(generics.RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticated, ]
+    serializer_class = UserSerializer
+
+    def get_object(self):
+        return self.request.user
+
+
+
 class NoteViewSet(viewsets.ModelViewSet):
     queryset = Note.objects.all()
     permission_classes = [permissions.AllowAny, ] # GET, POST, DELETE ...
