@@ -12,7 +12,7 @@ export default function handleNotes(state=initialState, action) {
       return [...state, action.note];
 
     case actions.UPDATE_NOTE:
-      let noteToUpdate = noteList[action.index]
+      let noteToUpdate = noteList[action.index];
       noteToUpdate.text = action.note.text;
       noteList.splice(action.index, 1, noteToUpdate);
       return noteList;
@@ -20,7 +20,7 @@ export default function handleNotes(state=initialState, action) {
     case actions.DELETE_NOTE:
     noteList.splice(action.index, 1);
     return noteList;
-    
+
     case actions.FETCH_NOTES:
       return [...state, ...action.notes];
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {notes} from "../redux/actions";
+import {notes, auth} from "../redux/actions";
 
 
 class Notes extends Component {
@@ -14,11 +14,11 @@ class Notes extends Component {
     }
 
     onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+        this.setState({ [e.target.name]: e.target.value });
     }
 
     validateNote = note => {
-        return alert("Validate data not implemented!")
+        return alert("Validate data not implemented!");
     }
 
     resetState = () => {
@@ -32,25 +32,27 @@ class Notes extends Component {
 
     confirmDelete = (id) => {
         if (window.confirm("are you sure you want to delete this note?")) {
-            this.props.deleteNote(id)
+            this.props.deleteNote(id);
         }
         return;
     }
 
     submitNote = (e) => {
         e.preventDefault();
-        this.validateNote(); 
+        this.validateNote();
         let operation = this.state.updateNoteId || this.state.updateNoteId === 0 ? this.props.updateNote : this.props.addNote;
         operation(this.state.text, this.state.updateNoteId)
             .then(this.resetState);
     }
 
-      
+
   render() {
     return (
       <div>
         <hr />
-
+        <div style={{textAlign: "right"}}>
+            {this.props.user.username} (<a onClick={this.props.logout}>logout</a>)
+        </div>
         <h3>Notes</h3>
             <h3>Add new note</h3>
                 <form onSubmit={this.submitNote}>
@@ -71,23 +73,24 @@ class Notes extends Component {
                         <td><button onClick={() => this.confirmDelete(id)} >delete</button></td>
                         <td>{note.text}</td>
                         <td><button onClick={() => this.selectForEdit(id)}>edit</button></td>
-                        
+
                     </tr>
                 ))
             }
           </tbody>
         </table>
       </div>
-    )
+    );
   }
 }
 
 
 const mapStateToProps = state => {
-  return {
-    notes: state.notes,
-  }
-}
+    return {
+      notes: state.notes,
+      user: state.auth.user,
+    };
+  };
 
 // Make actions available in props:
 const mapDispatchToProps = dispatch => {
@@ -104,8 +107,9 @@ const mapDispatchToProps = dispatch => {
         fetchNotes: () => {
             dispatch(notes.fetchNotes());
         },
-    }
-}
+        logout: () => dispatch(auth.logout()),
+    };
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notes);
