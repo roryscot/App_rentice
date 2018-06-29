@@ -4,7 +4,7 @@
 AWS app name: `app-rentice`
 - **staging**
   - AWS env. name: `app-rentice-staging`
-  - URL: https://staging.redflagai.co
+  - URL: https://staging.app-rentice.edu
 - **production**
   - AWS env. name: `app-rentice-production`
   - URL: https://www.app-rentice.edu
