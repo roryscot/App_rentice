@@ -26,6 +26,9 @@ class Login extends Component {
   }
 
   render() {
+    if (this.props.isAuthenticated) {
+      return <Redirect to="/dashboard" />;
+    }
     return (
       <form onSubmit={this.onSubmit}>
         <fieldset id="wrapper">
