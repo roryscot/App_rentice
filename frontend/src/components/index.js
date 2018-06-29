@@ -1,6 +1,6 @@
 export {default as HomePage} from "./HomePage.jsx";
 export {default as Notes} from "./Notes.jsx";
-export {default as Login} from "./Login.1.jsx";
+export {default as Login} from "./Login";
 export {default as NotFound} from "./NotFound.jsx";
 export {default as Contact} from "./Contact.jsx";
 export {default as Footer} from "./Footer.jsx";

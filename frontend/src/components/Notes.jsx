@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {notes, auth} from "../redux/actions";
+import {notes} from "../redux/actions";
 
 
 class Notes extends Component {
