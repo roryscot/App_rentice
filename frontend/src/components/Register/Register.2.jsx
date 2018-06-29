@@ -3,23 +3,20 @@ import {connect} from "react-redux";
 
 import {Link, Redirect} from "react-router-dom";
 
-import {auth} from "../redux/actions";
+import {auth} from "../../redux/actions";
 
-import AuthInput from './common/AuthInput';
+import AuthInput from '../common/AuthInput';
 
-class Login extends Component {
+class UpdateRegistration extends Component {
   state = {
-    username: "",
     firstName: "",
     lastName: "",
-    email:"",
-    password: "",
-    confirmPassword: "",
+    institution: "",
   }
 
   onSubmit = e => {
     e.preventDefault();
-    console.alert("Validate data not implemented")
+    console.warn("Validate data not implemented")
     this.props.register(this.state.username, this.state.password);
   }
 
@@ -31,14 +28,10 @@ class Login extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <fieldset id="wrapper">
-          <h2>Register</h2>
-            <AuthInput title="Email" name="email" type="email" onChange={this.onChange} />
-            <AuthInput title="Username" name="username" type="text" onChange={this.onChange} />
+          <h2>Update Registration</h2>
             <AuthInput title="First Name" name={"firstName"} type="text" onChange={this.onChange} />
             <AuthInput title="Last Name" name={"lastName"} type="text" onChange={this.onChange} />
-            <AuthInput title="Password" name="password" type="password" onChange={this.onChange} />
-            <AuthInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} />
-            <AuthInput title="Company" name="company" type="email" onChange={this.onChange} />
+            <AuthInput title="Institusion" name="institution" type="text" onChange={this.onChange} />
             <p>
               <button type="submit">Register</button>
             </p>
@@ -66,8 +59,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    register: (username, password) => dispatch(auth.register(username, password)),
+    // updateRegistratoin: (firstName, lastName, institution) => dispatch(auth.upDateRegistration(firstName, lastName, institution)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateRegistration);

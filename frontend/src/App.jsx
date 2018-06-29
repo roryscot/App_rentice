@@ -7,12 +7,14 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
 import {auth} from "./redux/actions";
-import ponyApp from "./redux/reducers";
+import App_rentice from "./redux/reducers";
 
 import { Dashboard, Footer, Header, Register, HomePage, About, NotFound, Login } from './components';
 
 
-let store = createStore(ponyApp, applyMiddleware(thunk));
+let store = createStore(App_rentice,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  applyMiddleware(thunk));
 
 class RootContainerComponent extends Component {
   static propTypes = {
@@ -43,22 +45,22 @@ class RootContainerComponent extends Component {
     let {PrivateRoute} = this;
     return (
       <div className="is-preload">
-        <div >
+          <div id="wrapper">
           <Header id="header"/>
           <hr/>
-          <BrowserRouter>
-            <Switch>
-            <Route exact path="/" component={HomePage} />
-              <Route exact path="/about" component={About} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/register" component={Register} />
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <Route component={NotFound} />
-            </Switch>
-          </BrowserRouter>
+            <BrowserRouter>
+              <Switch>
+              <Route exact path="/" component={HomePage} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+                <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <Route component={NotFound} />
+              </Switch>
+            </BrowserRouter>
+          </div>
           <hr/>
           <Footer />
-        </div>
       </div>
     );
   }

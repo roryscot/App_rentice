@@ -11,7 +11,6 @@ class Login extends Component {
   state = {
     username: "",
     password: "",
-    email:"",
   }
 
   onSubmit = e => {
@@ -28,21 +27,22 @@ class Login extends Component {
       return <Redirect to="/dashboard" />;
     }
     return (
-      <div id="wrapper">
+      <div>
         <form onSubmit={this.onSubmit}>
           <fieldset>
-            <legend>Login</legend>
-            {this.props.errors.length > 0 && (
-              <ul>
-                {
-                  this.props.errors.map(error => (
-                    error.message === 'Authentication credentials were not provided.' ? null :
-                    <li key={error.field}>{error.field + ': ' + error.message}</li>
-                  ))
-                }
-              </ul>
-            )}
-            <AuthInput title="Email" name="email" type="email" onChange={this.onChange} />
+            <h2>Login</h2>
+            {
+              this.props.errors.length > 0 && (
+                <ul>
+                  {
+                    this.props.errors.map(error => (
+                      error.message === 'Authentication credentials were not provided.' ? null :
+                      <li key={error.field}>{error.field + ': ' + error.message}</li>
+                    ))
+                  }
+                </ul>
+              )
+            }
             <AuthInput title="Username" name="username" type="text" onChange={this.onChange} />
             <AuthInput title="Password" name="password" type="password" onChange={this.onChange} />
             <p>
