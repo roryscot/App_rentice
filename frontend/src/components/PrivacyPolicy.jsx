@@ -59,6 +59,6 @@ export default class PrivacyPolicy extends Component {
 }
 
 PrivacyPolicy.propTypes = {
-  modal: PropTypes.boolean,
-  toggle: PropTypes.function
+  modal: PropTypes.bool,
+  toggle: PropTypes.func
 };
