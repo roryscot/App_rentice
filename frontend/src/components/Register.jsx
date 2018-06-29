@@ -5,7 +5,7 @@ import {Link, Redirect} from "react-router-dom";
 
 import {auth} from "../redux/actions";
 
-import RegisterInput from './common/RegisterInput';
+import AuthInput from './common/AuthInput';
 
 class Login extends Component {
   state = {
@@ -32,13 +32,13 @@ class Login extends Component {
       <form onSubmit={this.onSubmit}>
         <fieldset id="wrapper">
           <h2>Register</h2>
-            <RegisterInput title="Email" name="email" type="email" onChange={this.onChange} />
-            <RegisterInput title="Username" name="username" type="text" onChange={this.onChange} />
-            <RegisterInput title="First Name" name={"firstName"} type="text" onChange={this.onChange} />
-            <RegisterInput title="Last Name" name={"lastName"} type="text" onChange={this.onChange} />
-            <RegisterInput title="Password" name="password" type="password" onChange={this.onChange} />
-            <RegisterInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} />
-            <RegisterInput title="Company" name="company" type="email" onChange={this.onChange} />
+            <AuthInput title="Email" name="email" type="email" onChange={this.onChange} />
+            <AuthInput title="Username" name="username" type="text" onChange={this.onChange} />
+            <AuthInput title="First Name" name={"firstName"} type="text" onChange={this.onChange} />
+            <AuthInput title="Last Name" name={"lastName"} type="text" onChange={this.onChange} />
+            <AuthInput title="Password" name="password" type="password" onChange={this.onChange} />
+            <AuthInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} />
+            <AuthInput title="Company" name="company" type="email" onChange={this.onChange} />
             <p>
               <button type="submit">Register</button>
             </p>
