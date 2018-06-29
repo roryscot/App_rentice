@@ -19,12 +19,12 @@ pip install pipreqs
 pip install -r requirements.txt
 echo 'Dependencies installation done'
 
-OS_NAME=$(uname)
-if [[ "$OS_NAME" == CYGWIN* || "$OS_NAME" == MINGW* ]]; then
-	pip install waitress
-else
-	pip install gunicorn
-fi
+#OS_NAME=$(uname)
+#if [[ "$OS_NAME" == CYGWIN* || "$OS_NAME" == MINGW* ]]; then
+#	pip install waitress
+#else
+#	pip install gunicorn
+#fi
 
 echo 'WSGI server installation done'
 echo 'Build successful!'
