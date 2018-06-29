@@ -9,7 +9,7 @@ export default class PrivacyPolicy extends Component {
       <Modal isOpen={this.props.modal} toggle={this.props.toggle} className="modal-lg"  keyboard={false} backdrop="static">
         <ModalHeader toggle={this.props.toggle}>Privacy Policy</ModalHeader>
           <ModalBody>
-            <p>App_rentice operates the https://www.App_renticeai.co/ website, which provides the SERVICE.</p>
+            <p>App_rentice operates the https://www.App_rentice.co/ website, which provides the SERVICE.</p>
             <br/>
             <p>This page is used to inform website visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.</p>
             <br/>

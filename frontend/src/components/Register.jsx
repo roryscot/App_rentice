@@ -5,14 +5,9 @@ import {Link, Redirect} from "react-router-dom";
 
 import {auth} from "../redux/actions";
 
-class Register extends Component {
-  constructor(props) {
-    super(props);
+import RegisterInput from './common/RegisterInput';
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
+class Login extends Component {
   state = {
     username: "",
     firstName: "",
@@ -20,128 +15,38 @@ class Register extends Component {
     email:"",
     password: "",
     confirmPassword: "",
-    company: ""
-  }
-
-  onChange(e) {
-    let info = { [e.target.name]: e.target.value };
-    console.log(info);
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  handleValidateData() {
-    alert('Validate data not implemented!');
   }
 
   onSubmit = e => {
     e.preventDefault();
-    this.handleValidateData();
+    console.alert("Validate data not implemented")
     this.props.register(this.state.username, this.state.password);
   }
 
-  render() {
-    if (this.props.isAuthenticated) {
-      return <Redirect to="/" />;
-    }
-    return (
-      <div className="container-fluid">
-          <div className="row">
-              <div className="auth-form">
-                  <form className="form-size" onSubmit={this.onSubmit}>
-                  <fieldset>
-                    <legend>Register</legend>
-                    {
-                        this.props.errors.length > 0 && (
-                          <ul>
-                          {this.props.errors.map(error => (
-                              error.message === 'Authentication credentials were not provided.' ? null :
-                              <li key={error.field}>{error.field + ': ' + error.message}</li>
-                          ))}
-                          </ul>
-                      )
-                    }
-                    <p className="form-group">
-                      <label htmlFor="username">Username</label>
-                      <input
-                        className="form-control"
-                        type="text" id="username"
-                        onChange={this.onChange}
-                        placeholder="Username"
-                        name="username"
-                        required />
-                    </p>
-                    <p className="form-group">
-                      <label htmlFor="First Name">First Name</label>
-                      <input
-                        className="form-control"
-                        type="text" id="first name"
-                        onChange={this.onChange}
-                        placeholder="First Name"
-                        name="firstName"
-                        required />
-                    </p>
-                    <p className="form-group">
-                      <label htmlFor="last name">Last Name</label>
-                      <input
-                        className="form-control"
-                        type="text" id="last name"
-                        onChange={this.onChange}
-                        placeholder="Last Name"
-                        name="lastName"
-                        required />
-                    </p>
-                    <p className="form-group">
-                      <label htmlFor="email">Email</label>
-                      <input
-                        className="form-control"
-                        type="email" id="email"
-                        onChange={this.onChange}
-                        placeholder="Email"
-                        name="email"
-                        required/>
-                    </p>
-                    <p className="form-group">
-                      <label htmlFor="password">Password</label>
-                      <input
-                        className="form-control"
-                        type="password" id="password"
-                        onChange={this.onChange}
-                        placeholder="Password"
-                        name="password"
-                        required/>
-                    </p>
-                    <p className="form-group">
-                      <label htmlFor="password">Confirm Password</label>
-                      <input
-                        className="form-control"
-                        type="password" id="confirmPassword"
-                        onChange={this.onChange}
-                        placeholder="Confirm Password"
-                        name="confirmPassword"
-                        required/>
-                    </p>
-                    <p className="form-group">
-                      <label htmlFor="Company">Password</label>
-                      <input
-                        className="form-control"
-                        type="company" id="company"
-                        onChange={this.onChange}
-                        placeholder="Company"
-                        name="company"
-                        />
-                    </p>
-                    <p>
-                      <button type="submit" className="btn btn-lg btn-success btn-block">Register</button>
-                    </p>
+  onChange = (e) =>{
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
-                    <p>
-                      Already have an account? <Link to="/login">Login</Link>
-                    </p>
-                  </fieldset>
-                </form>
-              </div>
-          </div>
-      </div>
+  render() {
+    return (
+      <form onSubmit={this.onSubmit}>
+        <fieldset id="wrapper">
+          <h2>Register</h2>
+            <RegisterInput title="Email" name="email" type="email" onChange={this.onChange} />
+            <RegisterInput title="Username" name="username" type="text" onChange={this.onChange} />
+            <RegisterInput title="First Name" name={"firstName"} type="text" onChange={this.onChange} />
+            <RegisterInput title="Last Name" name={"lastName"} type="text" onChange={this.onChange} />
+            <RegisterInput title="Password" name="password" type="password" onChange={this.onChange} />
+            <RegisterInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} />
+            <RegisterInput title="Company" name="company" type="email" onChange={this.onChange} />
+            <p>
+              <button type="submit">Register</button>
+            </p>
+          <p>
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
+        </fieldset>
+      </form>
     );
   }
 }
@@ -160,10 +65,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  console.log(this.state);
   return {
     register: (username, password) => dispatch(auth.register(username, password)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

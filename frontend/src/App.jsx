@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {Route, Switch, BrowserRouter, Redirect} from 'react-router-dom';
 
 import { Provider, connect } from "react-redux";
@@ -8,14 +9,19 @@ import thunk from "redux-thunk";
 import {auth} from "./redux/actions";
 import ponyApp from "./redux/reducers";
 
-import PonyNote from "./components/Notes";
-import NotFound from "./components/NotFound";
-import Login from "./components/Login";
-import Register from "./components/Register.1";
+import { Dashboard, Footer, Header, Register, HomePage, About, NotFound, Login } from './components';
+
 
 let store = createStore(ponyApp, applyMiddleware(thunk));
 
 class RootContainerComponent extends Component {
+  static propTypes = {
+    auth: PropTypes.shape({
+      isLoading: PropTypes.bool,
+      isAuthenticated: PropTypes.bool,
+    }),
+    loadUser: PropTypes.func.isRequired
+  }
 
   componentDidMount() {
     this.props.loadUser();
@@ -36,14 +42,24 @@ class RootContainerComponent extends Component {
   render() {
     let {PrivateRoute} = this;
     return (
-      <BrowserRouter>
-        <Switch>
-          <PrivateRoute exact path="/" component={PonyNote} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route component={NotFound} />
-        </Switch>
-      </BrowserRouter>
+      <div className="is-preload">
+        <div >
+          <Header id="header"/>
+          <hr/>
+          <BrowserRouter>
+            <Switch>
+            <Route exact path="/" component={HomePage} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <Route component={NotFound} />
+            </Switch>
+          </BrowserRouter>
+          <hr/>
+          <Footer />
+        </div>
+      </div>
     );
   }
 }

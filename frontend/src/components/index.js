@@ -6,4 +6,7 @@ export {default as Contact} from "./Contact.jsx";
 export {default as Footer} from "./Footer.jsx";
 export {default as Header} from "./Header.jsx";
 export {default as PrivacyPolicy} from "./PrivacyPolicy.jsx";
-export {default as Register} from "./Register.jsx";
+export {default as Register} from "./Register";
+export {default as Dashboard} from "./Dashboard.jsx";
+export {default as About} from "./About.jsx";
+

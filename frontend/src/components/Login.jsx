@@ -33,7 +33,7 @@ state = {
   render() {
     const history = this.props.history;
     if (this.props.isAuthenticated) {
-      return <Redirect to="/dashboard" />;
+      return <Redirect to="/" />;
     }
     return (
       <div className="container-fluid">

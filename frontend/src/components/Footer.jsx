@@ -35,21 +35,17 @@ export default class Footer extends Component {
       <div className="footer">
         <Nav className="nav justify-content-center footer-nav">
           <NavItem>
-            <NavLink href="/solutions">Solutions</NavLink>
-          </NavItem>
-          <NavItem>
             <NavLink href="/insight">Insights</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/about">About Us</NavLink>
+            <NavLink href="/about">About</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="javascript:void(0)" onClick={this.contacttoggle}>Contact</NavLink>
+            <NavLink href="/contact" onClick={this.contacttoggle}>Contact</NavLink>
           </NavItem>
         </Nav>
         <div className="text-center nav-top footer-text"> © 2018 App_rentice. All rights reserved. <a className="text-underline" href="javascript:void(0)" onClick={this.policytoggle}>Privacy Policy</a></div>
-        <Contact modal={this.state.contactModal} toggle={this.contacttoggle} policytoggle={this.policytoggle}/>
-        <PrivacyPolicy modal={this.state.policyModal} toggle={this.policytoggle}/>
+          <PrivacyPolicy modal={this.state.policyModal} toggle={this.policytoggle}/>
       </div>
     );
   }

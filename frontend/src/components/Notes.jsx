@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {notes, auth} from "../redux/actions";
 
 
 class Notes extends Component {
+    static propTypes = {
+        notes: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.number.isRequired,
+                text: PropTypes.string
+            })
+        ),
+        fetchNotes: PropTypes.func.isRequired,
+        deleteNote: PropTypes.func.isRequired,
+        updateNote: PropTypes.func.isRequired,
+        addNote: PropTypes.func.isRequired,
+    }
     state = {
         text: "",
         updateNoteId: null,
@@ -49,11 +62,7 @@ class Notes extends Component {
   render() {
     return (
       <div>
-        <hr />
-        <div style={{textAlign: "right"}}>
-            {this.props.user.username} (<a onClick={this.props.logout}>logout</a>)
-        </div>
-        <h3>Notes</h3>
+        <h2>Notes</h2>
             <h3>Add new note</h3>
                 <form onSubmit={this.submitNote}>
                     <input
@@ -63,7 +72,7 @@ class Notes extends Component {
                         onChange={this.onChange}
                         required />
                     <input type="submit" value="Save Note" />
-                    <button onClick={this.resetForm}>Reset</button>
+                    <button onClick={this.resetState}>Reset</button>
                 </form>
         <table>
           <tbody>
@@ -88,7 +97,6 @@ class Notes extends Component {
 const mapStateToProps = state => {
     return {
       notes: state.notes,
-      user: state.auth.user,
     };
   };
 
@@ -107,7 +115,6 @@ const mapDispatchToProps = dispatch => {
         fetchNotes: () => {
             dispatch(notes.fetchNotes());
         },
-        logout: () => dispatch(auth.logout()),
     };
 };
 

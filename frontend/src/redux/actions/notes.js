@@ -12,7 +12,7 @@ export const fetchNotes = () => {
         if (res.status < 500) {
           return res.json().then(data => {
             return {status: res.status, data};
-          })
+          });
         } else {
           console.log("Server Error!");
           throw res;
@@ -25,9 +25,9 @@ export const fetchNotes = () => {
           dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
           throw res.data;
         }
-      })
-  }
-}
+      });
+  };
+};
 
 export const addNote = text => {
   return (dispatch, getState) => {
@@ -44,7 +44,7 @@ export const addNote = text => {
         if (res.status < 500) {
           return res.json().then(data => {
             return {status: res.status, data};
-          })
+          });
         } else {
           console.log("Server Error!");
           throw res;
@@ -57,9 +57,9 @@ export const addNote = text => {
           dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
           throw res.data;
         }
-      })
-  }
-}
+      });
+  };
+};
 
 export const updateNote = (index, text) => {
   return (dispatch, getState) => {
@@ -79,7 +79,7 @@ export const updateNote = (index, text) => {
         if (res.status < 500) {
           return res.json().then(data => {
             return {status: res.status, data};
-          })
+          });
         } else {
           console.log("Server Error!");
           throw res;
@@ -92,9 +92,9 @@ export const updateNote = (index, text) => {
           dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
           throw res.data;
         }
-      })
-  }
-}
+      });
+  };
+};
 
 export const deleteNote = index => {
   return (dispatch, getState) => {
@@ -115,7 +115,7 @@ export const deleteNote = index => {
         } else if (res.status < 500) {
           return res.json().then(data => {
             return {status: res.status, data};
-          })
+          });
         } else {
           console.log("Server Error!");
           throw res;
@@ -128,6 +128,6 @@ export const deleteNote = index => {
           dispatch({type: "AUTHENTICATION_ERROR", data: res.data});
           throw res.data;
         }
-      })
-  }
-}
+      });
+  };
+};
