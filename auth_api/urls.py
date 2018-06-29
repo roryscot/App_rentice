@@ -3,6 +3,7 @@ from rest_framework import routers
 
 from .api import RegistrationAPI, LoginAPI, UserAPI
 
+
 router = routers.DefaultRouter()
 
 urlpatterns = [
