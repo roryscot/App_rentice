@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class ACT_Section(models.Model):
-    ANSWER_CHOICES = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+    ANSWER_CHOICES = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "_"]
     questions=models.IntegerField()
     answers=models.CharField(
         max_length=1,

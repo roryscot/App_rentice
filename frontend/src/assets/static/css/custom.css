@@ -14,6 +14,13 @@
     color: wheat;
 }
 
+.incorrect-answer {
+    background-color: rgba(187, 22, 22, 0.3) !important;
+}
+
+.correct-answer {
+    background-color: rgba(80, 231, 100, 0.3) !important;
+}
 /* Wrapper class */
 
 .wrapper {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {connect} from "react-redux";
 
-import {Notes} from './';
+import {Notes, TestContainer} from './';
 
 class Dashboard extends Component {
     static propTypes = {
@@ -15,9 +15,10 @@ class Dashboard extends Component {
     render () {
         return (
             <div>
-                <p className="App-intro">
+                <h2 className="App-intro">
                     Welcome {this.props.user ? this.props.user.username : null}
-                </p>
+                </h2>
+                <TestContainer />
                 <Notes />
             </div>
         );

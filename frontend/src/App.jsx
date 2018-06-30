@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 import {auth} from "./redux/actions";
 import App_rentice from "./redux/reducers";
 
-import { Dashboard, Footer, Header, Register, HomePage, About, NotFound, Login } from './components';
+import { Dashboard, Footer, Header, Register, HomePage, About, NotFound, Login, TestContainer } from './components';
 
 
 let store = createStore(App_rentice,

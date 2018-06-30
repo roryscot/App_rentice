@@ -10,6 +10,7 @@ export {default as PrivacyPolicy} from "./PrivacyPolicy";
 export {default as Register} from "./Register/Register.1";
 export {default as Dashboard} from "./Dashboard";
 export {default as About} from "./About";
+export {default as TestContainer} from "./Tests/TestContainer";
 
 // Common
 export {default as AuthInput} from "./common/AuthInput";
