@@ -15,12 +15,15 @@ const SectionRow = (props) => {
             <td>{props.correctAnswer}</td>
             <td>{props.theme}</td>
             <td>{props.mark}</td>
-            <td toggle={false}>{props.tutornote}</td>
+            <td>{props.tutornote}</td>
         </tr>
     );
 }
 
 const SectionDisplay = (props) => {
+    //if this.props.auth.user.type === student {
+        const owner = props.userName;
+    // }
     return (
         <div>
             <h4>{props.section}</h4>
@@ -29,10 +32,10 @@ const SectionDisplay = (props) => {
                 <thead>
                     <tr>
                         <th>Number</th>
-                        <th>Your Answer</th>
+                        <th>{owner}{"'s Answer"}</th>
                         <th>Correct Answer</th>
                         <th>Theme</th>
-                        <th>Student Mark</th>
+                        <th>{owner}{"'s Mark"}</th>
                         <th>Tutor Note</th>
                     </tr>
                 </thead>
@@ -66,15 +69,14 @@ const SectionDisplay = (props) => {
 
 const TestDisplay = (props) => {
     const {testNumber, completed, convertedScore, sections} = props.test;
+    const userName = props.userName;
     return (
         <div>
-            <h3>{testNumber}<h6>{completed}</h6></h3>
-            
-            <p>Score: {convertedScore}</p>
+            <h3>{testNumber}</h3>
+            <p>Score: {convertedScore}</p><h6>({completed})</h6>
             {
                 sections.map(section => {
                     const {title, score, convertedScore, questions, studentAnswers, correctAnswers, themes, tutornotes} = section;
-                    console.log(questions)
                     return (
                         <SectionDisplay
                             key={`${testNumber}: ${title}`}
@@ -88,6 +90,8 @@ const TestDisplay = (props) => {
                             themes={themes}
                             marks={marks}
                             tutornotes={tutornotes}
+                            userName={userName}
+                            
                         />
                     );
                 })
@@ -185,10 +189,17 @@ class TestContainer extends Component {
         return (
             <div>
                 <h2>Test Results</h2>
-                <TestDisplay test={mockTest} />
+                <TestDisplay test={mockTest} userName={this.props.user.username}/>
             </div>
         );
     }
 }
 
-export default TestContainer;
+const mapStateToProps = state => {
+    return ({
+        user: state.auth.user
+    });
+  };
+
+
+export default connect(mapStateToProps)(TestContainer);
