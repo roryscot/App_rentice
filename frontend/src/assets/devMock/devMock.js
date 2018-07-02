@@ -1,11 +1,21 @@
 import logo from '../images/Logo.png'; //url: https://logomakr.com/3kgWwe
 
+// in addition to the students and tutors, there needs to be organization administrators who have an overview of the process.
+// So, someone like James needs to be able to read the notes and view the results of all of the students and tutors.
+
+export const institutionAdmin = {};
+
+// Perhaps parents might want to have an account, read notes and see statistics about their child's progress
+    // maybe parents will have access to the dashboard, but not to the profile
+
+export const careGiver = {};
+
 export const mockStudent = {
     id: "s3ri4liz3d User numb3r",
     type: "Student",
     name : {
         firstName: "{Student}",
-        lastName: "{Name}"
+        lastName: "{Name}",
     },
     institution: "{s3ri4liz3d s7ud3n7 numb3r}",
     status: {
@@ -112,6 +122,7 @@ export const mockStudent = {
     }
 };
 
+// Perhaps at some point, experienced tutors will have oversight over other tutors
 export const mockTutor = {
     id: "s3ri4liz3d Tutor numb3r",
     type: "Tutor",

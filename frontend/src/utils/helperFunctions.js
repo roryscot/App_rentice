@@ -6,3 +6,11 @@ export const buildMap = (obj) => {
     });
     return map;
 };
+
+export const questionListMaker = (integer) => {
+    var list = [];
+    for (var i = 1; i <= integer; i++) {
+        list.push(i);
+    }
+    return list
+};

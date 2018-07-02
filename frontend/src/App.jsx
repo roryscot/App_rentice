@@ -48,19 +48,21 @@ class RootContainerComponent extends Component {
           <div id="wrapper">
           <Header id="header"/>
           <hr/>
-            <BrowserRouter>
-              <Switch>
-              <Route exact path="/" component={HomePage} />
-                <Route exact path="/about" component={About} />
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/register" component={Register} />
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                <Route component={NotFound} />
-              </Switch>
-            </BrowserRouter>
+            <div id="main">
+              <BrowserRouter>
+                  <Switch>
+                  <Route exact path="/" component={HomePage} />
+                    <Route exact path="/about" component={About} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/register" component={Register} />
+                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                    <Route component={NotFound} />
+                  </Switch>
+                </BrowserRouter>
+            </div>
           </div>
           <hr/>
-          <Footer />
+          <Footer id="footer"/>
       </div>
     );
   }
