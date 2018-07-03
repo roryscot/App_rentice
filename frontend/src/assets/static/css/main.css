@@ -1095,7 +1095,7 @@ input, select, textarea {
 		left: 0;
 		width: 100%;
 		height: 100vh;
-		z-index: 1;
+		z-index: -1;
 	}
 
 		#bg:before, #bg:after {
@@ -1117,7 +1117,7 @@ input, select, textarea {
 			-webkit-transition-delay: 0.75s;
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
-			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
+			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.3), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
 			background-size: auto, 256px 256px;
 			background-position: center, center;
 			background-repeat: no-repeat, repeat;

@@ -1,42 +1,48 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TestDisplay from './TestDisplay';
 
-
-
-const ToggleButton = (props) => (
-    <button onClick={props.toggle}>Toggle</button>
-);
-
 class TestsContainer extends Component {
     // TODO: create a toggle that will expand tests, sections and notes
+    static propTypes = {
+        tests: PropTypes.arrayOf(PropTypes.shape({
+            testNumber: PropTypes.string.isRequired,
+            convertedScore: PropTypes.number.isRequired,
+            completed: PropTypes.string.isRequired,
+            sections: PropTypes.array.isRequired
+        }))
+    }
+
     state = {
-        testContainerShown: true,
-        testSectionDisplayed: true
+        allTestsShown: true,
+        testContainersShown: true,
+        allTestSectionsDisplayed: true,
     }
 
     toggle = () => {
-        console.log(this.state)
 		this.setState({
-			testSectionDisplayed: !this.state.testSectionDisplayed
+			allTestSectionsDisplayed: !this.state.allTestSectionsDisplayed
 		});
 	}
 
     render() {
-        let shown = {
-			display: this.state.testSectionDisplayed ? "block" : "none"
-        };
-        let hidden = {
-			display: this.state.testSectionDisplayed ? "none" : "block"
-        };
+        const allTests = this.props.tests;
+
         return (
             <div>
                 <h2>Test Results</h2>
-                <ToggleButton toggle={this.toggle} />
-                <TestDisplay {...this.props} 
-                toggle={this.toggle} shown={shown} hidden={hidden}
-                testSectionDisplayed={this.state.testSectionDisplayed}
-                />
+                {
+                    allTests.map(test => (
+                        <TestDisplay 
+                            toggle={this.toggle}
+                            test={test}
+                            key={test.testNumber}
+                            userName={this.props.userName}
+                            allTestSectionsDisplayed={this.state.allTestSectionsDisplayed}
+                            />
+                    ))
+                }
             </div>
         );
     }

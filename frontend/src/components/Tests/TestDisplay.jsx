@@ -3,25 +3,27 @@ import TestSectionDisplay from './TestSectionDisplay';
 
 import { questionListMaker } from '../../utils/helperFunctions';
 
-const ToggleButton = (props) => (
-    <button onClick={props.toggle}>Toggle</button>
-);
+import DisplaySections from './DisplaySectionsToggle';
 
 const TestDisplay = (props) => {
-    const {testNumber, completed, convertedScore, sections} = props.test;
+    const { allTestSectionsDisplayed } = props;
+    const { testNumber, completed, convertedScore, sections} = props.test;
     const userName = props.userName;
     return (
         <div className="test-display border border-white rounded">
-                <ToggleButton toggle={props.toggle}/>
-
             <table>
                 <thead >
                     <tr>
-                    <th className="test-header-display">{testNumber}</th>
-                    <th className="test-header-display">Score: {convertedScore}</th>
-                    <th className="test-header-display">({completed})</th>
+                        <th className="test-header-display">{testNumber}</th>
+                        <th className="test-header-display">Score: {convertedScore}</th>
+                        <th className="test-header-display">({completed})</th>
+                        <th className="test-header-display">
+                            <DisplaySections className="close" toggle={props.toggle} allTestSectionsDisplayed={allTestSectionsDisplayed}/>
+                        </th>
                     </tr>
+
                 </thead>
+               
             </table>
             {
                 sections.map(section => {
@@ -43,13 +45,24 @@ const TestDisplay = (props) => {
                             userName={userName}
 
                             toggle={this.toggle} shown={props.shown} hidden={props.hidden}
-                            testSectionDisplayed={props.testSectionDisplayed}
+                            allTestSectionsDisplayed={allTestSectionsDisplayed}
 
                         />
                     );
                 })
             }
-            <hr/>
+           <table>
+                <tfoot >
+                    <tr>
+                        <th className="test-header-display">{testNumber}</th>
+                        <th className="test-header-display">Score: {convertedScore}</th>
+                        <th className="test-header-display">({completed})</th>
+
+                    </tr>
+
+                </tfoot>
+               
+            </table>
         </div>
     );
 };

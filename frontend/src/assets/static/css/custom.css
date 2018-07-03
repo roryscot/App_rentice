@@ -42,3 +42,8 @@
 .table-break {
     background-color:rgba(208, 226, 210, 0.3) !important;
 }
+
+.collapse-table {
+    text-align: right !important;
+    color: rgb(170, 42, 42);
+}

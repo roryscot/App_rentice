@@ -3,9 +3,11 @@ import React from 'react';
 
 import {mockStudent, mockTutor, mockInstitution} from '../assets/devMock/devMock';
 
-import {mockStudentTest} from '../assets/devMock/ACT_67F';
+import { mockStudentTest1, mockStudentTest2} from '../assets/devMock/ACT_67F';
 
 import {Notes, TestsContainer} from './';
+
+const sampleTests = [mockStudentTest1,mockStudentTest2];
 
 class AboutPage extends React.Component {
     render() {
@@ -23,11 +25,11 @@ class AboutPage extends React.Component {
 
                 <div>
                     <h4>Get immedtiate results</h4>
-
                     <TestsContainer
-                        test={mockStudentTest}
+                        tests={sampleTests}
                         userName={userName}
                     />
+                    <Notes />
                 </div>
             </div>
         );
