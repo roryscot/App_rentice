@@ -57,8 +57,8 @@ const TestSectionTable = (props) => {
 
 const TestSectionDisplay = (props) => {
     //if this.props.auth.user.type === student {
-        const owner = props.userName;
-    // }
+        const owner = props.username;
+    // } else { owner = student }
 
     return (
         <div className="section-display border border-white rounded">

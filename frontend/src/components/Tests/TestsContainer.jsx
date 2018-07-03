@@ -38,7 +38,7 @@ class TestsContainer extends Component {
                             toggle={this.toggle}
                             test={test}
                             key={test.testNumber}
-                            userName={this.props.userName}
+                            username={this.props.username}
                             allTestSectionsDisplayed={this.state.allTestSectionsDisplayed}
                             />
                     ))

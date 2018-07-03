@@ -27,7 +27,7 @@ class AboutPage extends React.Component {
                     <h4>Get immedtiate results</h4>
                     <TestsContainer
                         tests={sampleTests}
-                        userName={userName}
+                        username={userName}
                     />
                     <Notes />
                 </div>

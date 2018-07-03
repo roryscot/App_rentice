@@ -8,7 +8,7 @@ import DisplaySections from './DisplaySectionsToggle';
 const TestDisplay = (props) => {
     const { allTestSectionsDisplayed } = props;
     const { testNumber, completed, convertedScore, sections} = props.test;
-    const userName = props.userName;
+    const username = props.username;
     return (
         <div className="test-display border border-white rounded">
             <table>
@@ -42,7 +42,7 @@ const TestDisplay = (props) => {
                             themes={themes}
                             marks={marks}
                             tutornotes={tutornotes}
-                            userName={userName}
+                            username={username}
 
                             toggle={this.toggle} shown={props.shown} hidden={props.hidden}
                             allTestSectionsDisplayed={allTestSectionsDisplayed}

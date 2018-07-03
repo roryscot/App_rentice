@@ -5,6 +5,10 @@ import {connect} from "react-redux";
 
 import {Notes, TestsContainer} from './';
 
+// TODO: get tests from database
+import { mockStudentTest1} from '../assets/devMock/ACT_67F';
+const tests = [mockStudentTest1];
+
 class Dashboard extends Component {
     static propTypes = {
         user: PropTypes.shape({
@@ -24,7 +28,10 @@ class Dashboard extends Component {
                     </p>
 
                 </div>
-                <TestsContainer />
+                <TestsContainer
+                    tests={tests}
+                    username={this.props.user.username}
+                />
                 <Notes />
             </div>
         );

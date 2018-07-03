@@ -60,11 +60,9 @@ class RootContainerComponent extends Component {
                   </Switch>
                 </BrowserRouter>
             </div>
-          </div>
-          <hr/>
-          {/* <!-- BG --> */}
-          <div id="bg"></div>
           <Footer id="footer"/>
+          </div>
+          <div id="bg"></div>
       </div>
     );
   }
