@@ -42,5 +42,15 @@ AWS app name: `app-rentice`
 3. Run `python manage.py collectstatic` to move the built files into the satic directory
 4. Deploying: `eb deploy [AWS env. name]`
 
+#Contributing
+
+####To suggest a feature, create an issue if it does not already exist. If you would like to help develop a suggested feature follow these steps:
+
+1. Fork this repo
+2. Install dependencies with yarn add
+3. Submit PR for review when the feature is complete
+
 ## Guidelines
 - If adding new packages in import, run pipreqs . --force to update requirements.txt. Do not modify requirements.txt manually.
+
+
