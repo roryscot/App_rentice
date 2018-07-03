@@ -17,7 +17,7 @@ class TestsContainer extends Component {
     state = {
         allTestsShown: true,
         testContainersShown: true,
-        allTestSectionsDisplayed: true,
+        allTestSectionsDisplayed: this.props.allTestSectionsDisplayed || false,
     }
 
     toggle = () => {

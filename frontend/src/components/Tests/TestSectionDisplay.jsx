@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
+import {
+    Table
+} from 'reactstrap';
+
 import TestSectionRow from './TestSectionRow';
+
+
 
 const TestSectionTable = (props) => {
     const {owner,allTestSectionsDisplayed, questions, studentAnswers, correctAnswers, themes, marks, tutornotes} = props;
     return (
         allTestSectionsDisplayed ?
             (
-                    <table >
+                    <Table hover size='sm'>
                         <thead>
                             <tr>
                                 <th>Number</th>
@@ -49,7 +55,7 @@ const TestSectionTable = (props) => {
                                 <th>Tutor Note</th>
                             </tr>
                         </tfoot>
-                    </table>
+                    </Table>
                 ) : 
                     null
     );
@@ -63,7 +69,7 @@ const TestSectionDisplay = (props) => {
     return (
         <div className="section-display border border-white rounded">
 
-             <table>
+             <Table>
                 <thead>
                     <tr>
                         <th>{props.section}</th>
@@ -71,18 +77,17 @@ const TestSectionDisplay = (props) => {
                         <th >({props.score} / {props.numQuestions})</th>
                     </tr>
                 </thead>
-            </table>
-            <hr />
+            </Table>
             < TestSectionTable {...props} owner={owner}/>
-            <table>
-            <tfoot>
+            <Table>
+                <tfoot>
                     <tr>
                         <th>{props.section}</th>
                         <th className="section-header-display">Score: {props.convertedScore} -</th>
                         <th >({props.score} / {props.numQuestions})</th>
                     </tr>
                 </tfoot>
-            </table>
+            </Table>
         </div>
     );
 

@@ -1,4 +1,6 @@
-import logo from '../images/Logo.png'; //url: https://logomakr.com/3kgWwe
+import logo from '../images/Logo1.png'; //url: https://logomakr.com/3kgWwe
+// logomakr.com/6E4ThA
+
 
 // in addition to the students and tutors, there needs to be organization administrators who have an overview of the process.
 // So, someone like James needs to be able to read the notes and view the results of all of the students and tutors.
