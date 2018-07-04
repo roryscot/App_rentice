@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import TestSectionDisplay from './CollapsingTestSectionDisplay';
-import ReactCollapsingTable from 'react-collapsing-table';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Collapse, Button, Table, Card } from 'reactstrap';
 
 import { questionListMaker } from '../../utils/helperFunctions';
 
-import {DisplayTest} from './DisplaySectionsToggle';
+import { DisplayTestToggler } from './DisplaySectionsToggle';
+import IconTag from '../../components/common/IconTag';
+import { TEST_ICON } from '../../assets/icons';
 
 class TestDisplay extends Component {
     static propTypes = {
@@ -41,70 +42,85 @@ class TestDisplay extends Component {
 
     render() {
         const { allTestSectionsDisplayed, test, username } = this.props;
-        const { testNumber, completed, convertedScore, sections} = test;
+        const { testType, testNumber, completed, convertedScore, sections} = test;
 
         return (
-            <div>
-                <DisplayTest toggle={this.toggle} collapse={this.state.collapse}/>
+            <div className="test-display border border-white rounded">
+                <Table>
+                        <thead >
+                            <tr>
+                                <th><IconTag icon={TEST_ICON}/></th>
+                                <th className="test-header-display">{testType}</th>
+                                <th className="test-header-display">{testNumber}</th>
+                                <th className="test-header-display">Score: {convertedScore}</th>
+                                <th className="test-header-display">({completed})</th>
+                                <th>
+                                    <DisplayTestToggler toggle={this.toggle} collapse={this.state.collapse}/>
+                                </th>
+                            </tr>
 
-                <div className="test-display border border-white rounded">
-                    <Collapse isOpen={this.state.collapse}>
-
-                        <Card className="collapse-card">
-                        <table>
-                            <thead >
-                                <tr>
-                                    <th className="test-header-display">{testNumber}</th>
-                                    <th className="test-header-display">Score: {convertedScore}</th>
-                                    <th className="test-header-display">({completed})</th>
-                                </tr>
-
-                            </thead>               
-                        </table>
-                        {
-                            sections.map(section => {
-                                const {title, score, convertedScore, studentAnswers, correctAnswers, marks, themes, tutornotes} = section;
-                                const questions = questionListMaker(section.numQuestions);
-                                return (
-                                    <TestSectionDisplay
-                                        key={`${testNumber}: ${title}`}
-                                        section={title}
-                                        numQuestions={questions.length}
-                                        score={score}
-                                        convertedScore={convertedScore}
-                                        questions={questions}
-                                        studentAnswers={studentAnswers}
-                                        correctAnswers={correctAnswers}
-                                        themes={themes}
-                                        marks={marks}
-                                        tutornotes={tutornotes}
-                                        username={username}
-            
-                                        allTestSectionsDisplayed={allTestSectionsDisplayed}
-                                        
-            
-                                    />
-                                );
-                            })
-                        }
-                        </Card>
-                    </Collapse>
-                <table>
+                        </thead>               
+                    </Table>
+                <Collapse isOpen={this.state.collapse}>
+                    <Card className="collapse-card">
+                    {
+                        sections.map(section => {
+                            const {title, icon, score, convertedScore, studentAnswers, correctAnswers, marks, themes, tutornotes} = section;
+                            const questions = questionListMaker(section.numQuestions);
+                            return (
+                                <TestSectionDisplay
+                                    key={`${testNumber}: ${title}`}
+                                    section={title}
+                                    icon={icon}
+                                    numQuestions={questions.length}
+                                    score={score}
+                                    convertedScore={convertedScore}
+                                    questions={questions}
+                                    studentAnswers={studentAnswers}
+                                    correctAnswers={correctAnswers}
+                                    themes={themes}
+                                    marks={marks}
+                                    tutornotes={tutornotes}
+                                    username={username}
+        
+                                    allTestSectionsDisplayed={allTestSectionsDisplayed}
+                                    
+        
+                                />
+                            );
+                        })
+                    }
+                    <Table>
                         <tfoot >
                             <tr>
                                 <th className="test-header-display">{testNumber}</th>
                                 <th className="test-header-display">Score: {convertedScore}</th>
                                 <th className="test-header-display">({completed})</th>
-        
                             </tr>
-        
                         </tfoot>
-                    
-                    </table>
-                </div>
-
+                    </Table>
+                    </Card>
+                </Collapse>
+                {
+                    this.state.collapse ? null :
+                        sections.map(section => {
+                            const {title, icon, convertedScore} = section;
+                            
+                            return (
+                                <Table>
+                                    <tfoot >
+                                        <tr onClick={this.toggle}>
+                                            <th><IconTag icon={icon}/></th>
+                                            <th className="test-header-display">{title}</th>
+                                            <th className="test-header-display">Score: {convertedScore}</th>
+                                        </tr>
+                                    </tfoot>
+                                </Table>
+                            );
+                        }
+                    ) 
+                }
             </div>
-           
         );
     }
 

@@ -3,16 +3,17 @@ import React from 'react';
 
 import {mockStudent, mockTutor, mockInstitution} from '../assets/devMock/devMock';
 
-import { mockStudentTest1, mockStudentTest2} from '../assets/devMock/ACT_67F';
+import { mockStudentTest1, mockStudentTest2, mockStudentTest3} from '../assets/devMock/ACT_67F';
 
 import {Notes, TestsContainer} from './';
 
-const sampleTests = [mockStudentTest1,mockStudentTest2];
+const sampleTests = [mockStudentTest3];
+
 
 class AboutPage extends React.Component {
     render() {
 
-        const userName = mockStudent.name.firstName + " " + mockStudent.name.lastName;
+        const userName = mockStudent.name.firstName;
         return (
             <div id="about">
                 <div className="content">

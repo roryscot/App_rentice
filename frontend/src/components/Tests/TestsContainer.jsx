@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import TestDisplay from './TestDisplay';
 import TestDisplay from './CollapsingTestDisplay';
+import { DisplayAllSectionsToggler } from './DisplaySectionsToggle';
 
 class TestsContainer extends Component {
     // TODO: create a toggle that will expand tests, sections and notes
@@ -18,8 +19,7 @@ class TestsContainer extends Component {
     state = {
         allTestsShown: true,
         testContainersShown: true,
-        // allTestSectionsDisplayed: this.props.allTestSectionsDisplayed || false,
-        allTestSectionsDisplayed: true
+        allTestSectionsDisplayed: this.props.allTestSectionsDisplayed || true,
     }
 
     toggle = () => {

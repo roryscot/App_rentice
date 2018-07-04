@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
 import {
-    Table
+    Table,
+    Collapse, Card
 } from 'reactstrap';
 
 import TestSectionRow from './TestSectionRow';
-import { DisplayTest } from './DisplaySectionsToggle';
-
+import IconTag from '../../components/common/IconTag';
+import { DisplaySectionToggler } from './DisplaySectionsToggle';
 
 const TestSectionTable = (props) => {
-    const {owner,allTestSectionsDisplayed, questions, studentAnswers, correctAnswers, themes, marks, tutornotes} = props;
+    const {owner, allTestSectionsDisplayed, questions, studentAnswers, correctAnswers, themes, marks, tutornotes} = props;
     return (
         allTestSectionsDisplayed ?
             (
                     <Table hover size='sm'>
                         <thead>
                             <tr>
-                                <th>Number</th>
+                                <th>#</th>
                                 <th>{owner}{"'s Answer"}</th>
                                 <th>Correct Answer</th>
                                 <th>Theme</th>
@@ -32,6 +35,7 @@ const TestSectionTable = (props) => {
                                 return (
                                     <TestSectionRow
                                         key={`question${q}`}
+                                        uniqueKey={`question${q}`}
                                         verisimilitude={verisimilitude}
                                         questionNumber={q}
                                         studentAnswer={studentAnswers[q]}
@@ -61,36 +65,61 @@ const TestSectionTable = (props) => {
     );
 };
 
-const TestSectionDisplay = (props) => {
-    //if this.props.auth.user.type === student {
-        const owner = props.username;
-    // } else { owner = student }
 
-    return (
-        <div className="section-display border border-white rounded">
+class TestSectionDisplay extends Component {
+    static propTypes = {
+        allTestSectionsDisplayed: PropTypes.bool.isRequired,
+        section: PropTypes.string.isRequired,
+        convertedScore: PropTypes.number.isRequired,
+        numQuestions: PropTypes.number.isRequired,
+        username: PropTypes.string.isRequired,
+    }
+    toggle = () => {
+        this.setState({ collapse: !this.state.collapse });
+    }
+    
+    state = {
+        collapse: false
+    };
 
-             <Table>
-                <thead>
-                    <tr>
-                        <th>{props.section}</th>
-                        <th className="section-header-display">Score: {props.convertedScore} -</th>
-                        <th >({props.score} / {props.numQuestions})</th>
-                    </tr>
-                </thead>
-            </Table>
-            < TestSectionTable {...props} owner={owner}/>
-            <Table>
-                <tfoot>
-                    <tr>
-                        <th>{props.section}</th>
-                        <th className="section-header-display">Score: {props.convertedScore} -</th>
-                        <th >({props.score} / {props.numQuestions})</th>
-                    </tr>
-                </tfoot>
-            </Table>
-        </div>
-    );
+    render() {
+        //if this.props.auth.user.type === student {
+            const owner = this.props.username;
+            // } else { owner = student }
+        
+            return (
+                <div className="section-display border border-white rounded">
 
+                     <Table>
+                        <thead>
+                            <tr>
+                                <th><IconTag icon={this.props.icon} /></th>
+                                <th>{this.props.section}</th>
+                                <th className="section-header-display">Score: {this.props.convertedScore} -</th>
+                                <th >({this.props.score} / {this.props.numQuestions})</th>
+                                <th>
+                                    <DisplaySectionToggler toggle={this.toggle} collapse={this.state.collapse}/>
+                                </th>
+                            </tr>
+                        </thead>
+                    </Table>
+                    <Collapse isOpen={this.state.collapse}>
+                        <Card className="collapse-card">
+                    < TestSectionTable {...this.props} owner={owner}/>
+                    <Table>
+                        <tfoot>
+                            <tr>
+                                <th>{this.props.section}</th>
+                                <th className="section-header-display">Score: {this.props.convertedScore} -</th>
+                                <th >({this.props.score} / {this.props.numQuestions})</th>
+                            </tr>
+                        </tfoot>
+                    </Table>
+                    </Card>
+                    </Collapse>
+                </div>
+            );
+    }
 }
 
 export default TestSectionDisplay;
