@@ -1,4 +1,7 @@
+
 import React from 'react';
+import ReactCollapsingTable from 'react-collapsing-table'
+
 import TestSectionDisplay from './TestSectionDisplay';
 
 import { questionListMaker } from '../../utils/helperFunctions';

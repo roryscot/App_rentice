@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DisplaySections = (props) => (
+export const DisplaySections = (props) => (
     <span className="close" onClick={props.toggle}>
     {
         props.allTestSectionsDisplayed ? 
@@ -10,4 +10,13 @@ const DisplaySections = (props) => (
     </span>
 );
 
-export default DisplaySections;
+
+export const DisplayTest = (props) => (
+    <span className="close" onClick={props.toggle}>
+        {
+            props.collapse ? 
+            "X" : 
+            "O"
+        }
+    </span>
+)

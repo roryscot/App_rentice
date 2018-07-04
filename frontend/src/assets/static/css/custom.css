@@ -47,3 +47,7 @@
     text-align: right !important;
     color: rgb(170, 42, 42);
 }
+
+.collapse-card {
+    background-color: transparent !important;
+}
