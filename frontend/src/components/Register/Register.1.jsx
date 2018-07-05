@@ -31,8 +31,7 @@ class Login extends Component {
     }
     return (
       <form onSubmit={this.onSubmit}>
-        <fieldset id="wrapper">
-          <h2>Register</h2>
+          <h2 className="major">Register</h2>
           {
             this.props.errors.length > 0 && (
               <ul>
@@ -45,17 +44,18 @@ class Login extends Component {
               </ul>
             )
           }
-            <AuthInput title="Email" name="email" type="email" onChange={this.onChange} />
-            <AuthInput title="Username" name="username" type="text" onChange={this.onChange} />
-            <AuthInput title="Password" name="password" type="password" onChange={this.onChange} />
-            <AuthInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} />
+            <div className="fields">
+              <AuthInput title="Email" name="email" type="email" onChange={this.onChange} className="field half"/>
+              <AuthInput title="Username" name="username" type="text" onChange={this.onChange} className="field half"/>
+              <AuthInput title="Password" name="password" type="password" onChange={this.onChange} className="field half"/>
+              <AuthInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} className="field half"/>
+            </div>
             <p>
               <button type="submit">Register</button>
             </p>
           <p>
-            Already have an account? <Link to="/login">Login</Link>
+            Already have an account? <Link to="/login" className="open"><em>Login</em></Link>
           </p>
-        </fieldset>
       </form>
     );
   }

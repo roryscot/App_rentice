@@ -29,8 +29,7 @@ class Login extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <fieldset>
-            <h2>Login</h2>
+            <h2 className="major">Login</h2>
             {
               this.props.errors.length > 0 && (
                 <ul>
@@ -43,16 +42,17 @@ class Login extends Component {
                 </ul>
               )
             }
-            <AuthInput title="Username" name="username" type="text" onChange={this.onChange} />
-            <AuthInput title="Password" name="password" type="password" onChange={this.onChange} />
+            <div className="fields" >
+              <AuthInput title="Username" name="username" type="text" onChange={this.onChange} className="field half" />
+              <AuthInput title="Password" name="password" type="password" onChange={this.onChange} className="field half" />
+            </div>
             <p>
               <button type="submit">Login</button>
             </p>
 
             <p>
-              {"Don't have an account?"} <Link to="/register">Register</Link>
+              {"Don't have an account?"} <Link to="/register"><em>Register</em></Link>
             </p>
-          </fieldset>
         </form>
       </div>
     );
