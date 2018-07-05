@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {Notes, TestsContainer} from './';
 
 // TODO: get tests from database
-import { mockStudentTest1, mockStudentTest2, mockStudentTest3 } from '../assets/devMock/ACT_67F';
+import { mockStudentTest1, mockStudentTest2, mockStudentTest3 } from '../assets/devMock/mockTestResults';
 const  tests = [mockStudentTest1,mockStudentTest2,mockStudentTest3];
 
 class Dashboard extends Component {

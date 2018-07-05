@@ -3,7 +3,7 @@ import React from 'react';
 
 import {mockStudent, mockTutor, mockInstitution} from '../assets/devMock/devMock';
 
-import { mockStudentTest1, mockStudentTest2, mockStudentTest3} from '../assets/devMock/ACT_67F';
+import { mockStudentTest3} from '../assets/devMock/mockTestResults';
 
 import {Notes, TestsContainer} from './';
 
@@ -23,14 +23,15 @@ class AboutPage extends React.Component {
                     </div>
 
                 </div>
-
+                <hr />
                 <div>
-                    <h4>Get immedtiate results</h4>
-                    <TestsContainer
-                        tests={sampleTests}
-                        username={userName}
-                    />
-                    <Notes />
+                    <h3>Examples:</h3>
+                        <h4>Get immedtiate results</h4>
+                        <TestsContainer
+                            tests={sampleTests}
+                            username={userName}
+                        />
+                        <Notes />
                 </div>
             </div>
         );

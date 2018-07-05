@@ -1,6 +1,34 @@
 import logo from '../images/Logo1.png'; //url: https://logomakr.com/3kgWwe
 // logomakr.com/6E4ThA
 
+import { ENGLISH_ICON, MATHEMATICS_ICON, READING_ICON, SCIENCE_ICON, STAR_ICON, TARGET_ICON, ALERT_ICON, QUESTION_ICON, TIME_ICON } from '../icons';
+export const CONSTANTS = {
+    TEST_TYPE: "ACT",
+    TEST_SECTIONS: {
+        ENGLISH: {
+            TITLE: "English",
+            ICON: ENGLISH_ICON,
+        },
+        MATHEMATICS: {
+            TITLE: "Mathematics",
+            ICON: MATHEMATICS_ICON,
+        },
+        READING: {
+            TITLE: "Reading",
+            ICON: READING_ICON,
+        },
+        SCIENCE: {
+            TITLE: "Science",
+            ICON: SCIENCE_ICON,
+        },
+    },
+    QUESTION_NUMBERS: {
+        NUM_ENGLISH_QUESTIONS: 75,
+        NUM_MATHEMATICS_QUESTIONS: 75,
+        NUM_READING_QUESTIONS: 40,
+        NUM_SCIENCE_QUESTIONS: 40,
+    }
+};
 
 // in addition to the students and tutors, there needs to be organization administrators who have an overview of the process.
 // So, someone like James needs to be able to read the notes and view the results of all of the students and tutors.
