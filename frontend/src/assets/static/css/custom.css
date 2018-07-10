@@ -4,6 +4,23 @@
     flex-direction: row;
 }
 
+.assignments-list {}
+
+.homework-card {
+    background: transparent;
+}
+
+.homework-card-button {
+    text-align: right !important;
+    align-content: right !important;
+    align-self: right !important;
+    
+}
+
+.card-header {
+    background-color: rgba(59, 160, 243, 0.3) !important;
+}
+
 .logo{
     display: block;
     margin-right: auto;

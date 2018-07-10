@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import {connect} from "react-redux";
 
-import {Notes, TestsContainer} from './';
+import { Notes, TestsContainer, Assignments } from './';
 
 // TODO: get tests from database
 import { mockStudentTest1, mockStudentTest2, mockStudentTest3 } from '../assets/devMock/mockTestResults';
@@ -28,11 +28,11 @@ class Dashboard extends Component {
                     </p>
 
                 </div>
-                <TestsContainer
-                    tests={tests}
-                    username={this.props.user.username}
-                />
+                <Assignments />
+                <hr/>
+                
                 <Notes />
+                <hr/>
             </div>
         );
     }

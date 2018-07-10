@@ -15,4 +15,12 @@ export {default as TestsContainer} from "./Tests/TestsContainer";
 // Common
 export {default as AuthInput} from "./common/AuthInput";
 
+// ACT Forms
+export {default as ACTForm} from "./Tests/ACTForms/ACTForm";
+
+// Assignments
+export {default as Assignments} from "./Assignments/Assignments";
+
+// Profile
+export {default as Profile} from "./profiles/AppProfile";
 

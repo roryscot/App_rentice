@@ -6,7 +6,7 @@ import TestSectionDisplay from './TestSectionDisplay';
 
 import { questionListMaker } from '../../utils/helperFunctions';
 
-import DisplaySections from './DisplaySectionsToggle';
+import {DisplaySectionToggler} from './DisplaySectionsToggle';
 
 const TestDisplay = (props) => {
     const { allTestSectionsDisplayed } = props;
@@ -21,7 +21,7 @@ const TestDisplay = (props) => {
                         <th className="test-header-display">Score: {convertedScore}</th>
                         <th className="test-header-display">({completed})</th>
                         <th className="test-header-display">
-                            <DisplaySections className="close" toggle={props.toggle} allTestSectionsDisplayed={allTestSectionsDisplayed}/>
+                            <DisplaySectionToggler className="close" toggle={props.toggle} allTestSectionsDisplayed={allTestSectionsDisplayed}/>
                         </th>
                     </tr>
 

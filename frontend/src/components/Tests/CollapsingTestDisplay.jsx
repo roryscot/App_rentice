@@ -107,7 +107,7 @@ class TestDisplay extends Component {
                             const {title, icon, convertedScore} = section;
                             
                             return (
-                                <Table>
+                                <Table key={title}>
                                     <tfoot >
                                         <tr onClick={this.toggle}>
                                             <th><IconTag icon={icon}/></th>

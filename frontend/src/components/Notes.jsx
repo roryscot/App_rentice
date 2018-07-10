@@ -17,6 +17,7 @@ class Notes extends Component {
         updateNote: PropTypes.func.isRequired,
         addNote: PropTypes.func.isRequired,
     }
+    
     state = {
         text: "",
         updateNoteId: null,

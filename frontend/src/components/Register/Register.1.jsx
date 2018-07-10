@@ -44,18 +44,30 @@ class Login extends Component {
               </ul>
             )
           }
-            <div className="fields">
-              <AuthInput title="Email" name="email" type="email" onChange={this.onChange} className="field half"/>
-              <AuthInput title="Username" name="username" type="text" onChange={this.onChange} className="field half"/>
-              <AuthInput title="Password" name="password" type="password" onChange={this.onChange} className="field half"/>
-              <AuthInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} className="field half"/>
+          <div className="fields">
+            <div className="field third">
+              <input type="radio" id="student" name="student"/>
+              <label htmlFor="student">Student</label>
             </div>
-            <p>
-              <button type="submit">Register</button>
-            </p>
+            <div className="field third">
+              <input type="radio" id="tutor" name="tutor"/>
+              <label for="tutor">Tutor</label>
+            </div>
+            <div className="field third">
+              <input type="radio" id="entrepreneur" name="entrepreneur"/>
+              <label htmlFor="entrepreneur">Entrepreneur</label>
+            </div>
+            <AuthInput title="Email" name="email" type="email" onChange={this.onChange} className="field half"/>
+            <AuthInput title="Username" name="username" type="text" onChange={this.onChange} className="field half"/>
+            <AuthInput title="Password" name="password" type="password" onChange={this.onChange} className="field half"/>
+            <AuthInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} className="field half"/>
+          </div>
           <p>
-            Already have an account? <Link to="/login" className="open"><em>Login</em></Link>
+            <button type="submit">Register</button>
           </p>
+        <p>
+          Already have an account? <Link to="/login" className="open"><em>Login</em></Link>
+        </p>
       </form>
     );
   }
