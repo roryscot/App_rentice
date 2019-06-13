@@ -6039,6 +6039,12 @@ react-bootstrap@^0.32.1:
     uncontrollable "^4.1.0"
     warning "^3.0.0"
 
+react-collapsing-table@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/react-collapsing-table/-/react-collapsing-table-0.4.2.tgz#60dec53369df3b2636f02d610d86233d6ee83a9d"
+  dependencies:
+    react "^16.1.0"
+
 react-dev-utils@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-5.0.1.tgz#1f396e161fe44b595db1b186a40067289bf06613"
@@ -6176,7 +6182,7 @@ react-transition-group@^2.3.1:
     loose-envify "^1.3.1"
     prop-types "^15.6.1"
 
-react@^16.4.1:
+react@^16.1.0, react@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
   dependencies:

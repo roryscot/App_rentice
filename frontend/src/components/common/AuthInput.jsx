@@ -1,12 +1,11 @@
 import React from 'react';
 
 const AuthInput = (props) => {
-    const {name, title, onChange, type} = props;
+    const {name, title, onChange, type, className} = props;
     return  (
-        <div className="form-group">
+        <div className={className}>
             <label htmlFor={name}>{title}</label>
             <input
-                className="form-control"
                 type={type} id={name}
                 onChange={onChange}
                 placeholder={title}

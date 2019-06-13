@@ -11,7 +11,7 @@ export const fetchNotes = () => {
       .then(res => {
         if (res.status < 500) {
           return res.json().then(data => {
-            return {status: res.status, data};
+            return {status: res.status,  data};
           });
         } else {
           console.log("Server Error!");

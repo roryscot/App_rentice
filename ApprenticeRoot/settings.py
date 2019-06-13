@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'webpack_loader',
     'knox',
     'notes',
+    'django-postman',
+    'todos',
+    'assignments'
 ]
 
 WEBPACK_LOADER = {

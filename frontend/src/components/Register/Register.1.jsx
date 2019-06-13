@@ -31,8 +31,7 @@ class Login extends Component {
     }
     return (
       <form onSubmit={this.onSubmit}>
-        <fieldset id="wrapper">
-          <h2>Register</h2>
+          <h2 className="major">Register</h2>
           {
             this.props.errors.length > 0 && (
               <ul>
@@ -45,17 +44,30 @@ class Login extends Component {
               </ul>
             )
           }
-            <AuthInput title="Email" name="email" type="email" onChange={this.onChange} />
-            <AuthInput title="Username" name="username" type="text" onChange={this.onChange} />
-            <AuthInput title="Password" name="password" type="password" onChange={this.onChange} />
-            <AuthInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} />
-            <p>
-              <button type="submit">Register</button>
-            </p>
+          <div className="fields">
+            <div className="field third">
+              <input type="radio" id="student" name="student"/>
+              <label htmlFor="student">Student</label>
+            </div>
+            <div className="field third">
+              <input type="radio" id="tutor" name="tutor"/>
+              <label for="tutor">Tutor</label>
+            </div>
+            <div className="field third">
+              <input type="radio" id="entrepreneur" name="entrepreneur"/>
+              <label htmlFor="entrepreneur">Entrepreneur</label>
+            </div>
+            <AuthInput title="Email" name="email" type="email" onChange={this.onChange} className="field half"/>
+            <AuthInput title="Username" name="username" type="text" onChange={this.onChange} className="field half"/>
+            <AuthInput title="Password" name="password" type="password" onChange={this.onChange} className="field half"/>
+            <AuthInput title="Confirm Password" name="confirmPassword" type="password" onChange={this.onChange} className="field half"/>
+          </div>
           <p>
-            Already have an account? <Link to="/login">Login</Link>
+            <button type="submit">Register</button>
           </p>
-        </fieldset>
+        <p>
+          Already have an account? <Link to="/login" className="open"><em>Login</em></Link>
+        </p>
       </form>
     );
   }

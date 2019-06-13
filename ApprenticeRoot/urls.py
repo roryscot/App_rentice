@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 
 import auth_api.urls
+import assignments.urls
 import notes.urls
 
 urlpatterns = [
@@ -25,5 +26,7 @@ urlpatterns = [
     url(r'^api/', include(auth_api.urls)),
     url(r'^api/notes', include(notes.urls)),
     url(r'^api/auth/', include('knox.urls')),
+    url(r'^todo/', include('todos.urls')),
+    url(r'^api/assignments/', include(assignments.urls)),
     url(r'^', TemplateView.as_view(template_name="index.html")),
 ]

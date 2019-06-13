@@ -72,6 +72,7 @@ class Header extends Component {
       <Nav className="ml-auto" navbar>
         <HeaderLink title="Profile" isActive={isActive}/>
         <HeaderLink title="Dashboard" isActive={isActive}/>
+        <HeaderLink title="Test" isActive={isActive}/>
         <NavItem >
           <NavLink href="#" onClick={this.logout}>
             <HeaderLinkTitle title="Logout" />

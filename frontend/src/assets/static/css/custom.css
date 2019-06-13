@@ -4,6 +4,23 @@
     flex-direction: row;
 }
 
+.assignments-list {}
+
+.homework-card {
+    background: transparent;
+}
+
+.homework-card-button {
+    text-align: right !important;
+    align-content: right !important;
+    align-self: right !important;
+    
+}
+
+.card-header {
+    background-color: rgba(59, 160, 243, 0.3) !important;
+}
+
 .logo{
     display: block;
     margin-right: auto;
@@ -14,57 +31,40 @@
     color: wheat;
 }
 
-/* Wrapper class */
-
-.wrapper {
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    -moz-flex-direction: column;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -moz-align-items: center;
-    -webkit-align-items: center;
-    -ms-align-items: center;
-    align-items: center;
-    -moz-justify-content: space-between;
-    -webkit-justify-content: space-between;
-    -ms-justify-content: space-between;
-    justify-content: space-between;
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-    padding: 4rem 2rem;
-    z-index: 3;
+.incorrect-answer {
+    background-color: rgba(187, 22, 22, 0.3) !important;
 }
 
-    .wrapper:before {
-        content: '';
-        display: block;
-    }
+.correct-answer {
+    background-color: rgba(80, 231, 100, 0.3) !important;
+}
 
-    @media screen and (max-width: 1680px) {
+.test-display {
+    margin: 5em;
+}
 
-        .wrapper {
-            padding: 3rem 2rem;
-        }
+.test-header-display {
+    text-align: center;
+    text-decoration-line: underline;
+}
 
-    }
+.section-display {
+    margin: 2em;
+    background-color: rgba(208, 219, 210, 0.1)}
 
-    @media screen and (max-width: 736px) {
+.section-header-display {
+    text-align-last: right;
+}
 
-        .wrapper {
-            padding: 2rem 1rem;
-        }
+.table-break {
+    background-color:rgba(208, 226, 210, 0.3) !important;
+}
 
-    }
+.collapse-table {
+    text-align: right !important;
+    color: rgb(170, 42, 42);
+}
 
-    @media screen and (max-width: 480px) {
-
-        .wrapper {
-            padding: 1rem;
-        }
-
-    }
+.collapse-card {
+    background-color: transparent !important;
+}

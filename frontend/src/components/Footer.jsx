@@ -32,10 +32,12 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <div className="footer">
+      <div id="footer">
         <Nav className="nav justify-content-center footer-nav">
           <NavItem>
-            <NavLink href="/insight">Insights</NavLink>
+            <NavLink href="/privacy" onClick={this.policytoggle} >
+              Privacy Policy
+            </NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="/about">About</NavLink>
@@ -44,8 +46,8 @@ export default class Footer extends Component {
             <NavLink href="/contact" onClick={this.contacttoggle}>Contact</NavLink>
           </NavItem>
         </Nav>
-        <div className="text-center nav-top footer-text"> © 2018 App_rentice. All rights reserved. <a className="text-underline" href="javascript:void(0)" onClick={this.policytoggle}>Privacy Policy</a></div>
-          <PrivacyPolicy modal={this.state.policyModal} toggle={this.policytoggle}/>
+        <div className="copyright"> © 2018 App_rentice. All rights reserved. 
+        </div>
       </div>
     );
   }

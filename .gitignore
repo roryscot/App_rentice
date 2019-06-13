@@ -50,19 +50,19 @@ coverage.xml
 *.mo
 *.pot
 
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon
+Thumbs.db
+
 # Django stuff:
 *.log
 .static_storage/
 .media/
-settings.py
+.settings.py
 *.sqlite3
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
 
 # Sphinx documentation
 docs/_build/
@@ -127,3 +127,6 @@ bundles/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+glob:*.pyc
+glob:docs/_*
